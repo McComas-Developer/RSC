@@ -1,0 +1,20 @@
+; Author: Michael McComas
+; Purpose: Subtract 8 from 10
+  
+  JMP start
+  
+  ; Variables
+
+  var1: 8
+  var2: A
+
+  start:       ; the label 'start'. The jump statement earlier jumps here
+     LDAC var1 ; Load the first variable into Accumulator
+     MOVAC     ; Move the contents of Accumulator to R
+     LDAC var2 ; Load the second variable into Accumulator
+     SUB       ; Subtract Accumulator and R, move result into Accumulator
+     OUT       ; Send Accumulator contents to Output Register
+
+     HALT     ; Stop execution
+
+	

@@ -1,0 +1,86 @@
+; Author: Michael McComas
+; Purpose: Perform basic operations
+  
+  JMP start
+  
+  ; Variables
+
+  var1: 2B     ; 43 in decimal
+  var2: A9     ; 169 in decimal
+  var3: AF     ; 175 in decimal
+  var4: D1     ; 209 in decimal
+  sum: 0       ; Stores sum of var1 and var2
+  dif: 0       ; Stores difference of var1 and var2
+  band: 0      ; Stores 'and' result of var1 and var2
+  bor: 0       ; Stores 'or' result of var1 and var2
+  shft: 0      ; Stores arithmetic right shift of var2
+
+  start:       ; the label 'start'. The jump statement earlier jumps here
+
+; Adding var1 and var2
+     LDAC var1 ; Load the first variable into Accumulator
+     MOVAC     ; Move the contents of Accumulator to R
+     LDAC var2 ; Load the second variable into Accumulator
+     ADD       ; Add Accumulator and R, move result into Accumulator
+     STAC sum  ; Store ACC to sum address
+     LDAC sum  ; Load ACC from sum address
+     OUT       ; Send Accumulator contents to Output Register
+     CLAC      ; Clear ACC
+
+; Subtracting var1 from var2
+     LDAC var1 ; Load var1 into Accumulator
+     MOVAC     ; Move the contents of Accumulator to R
+     LDAC var2 ; Load the second variable into Accumulator
+     SUB       ; Subtract Accumulator and R, move result into Accumulator
+     STAC dif  ; Store ACC to dif address
+     LDAC dif  ; Load ACC from dif address
+     OUT       ; Send ACC contents to output
+     CLAC      ; Clear ACC
+
+; AND var1 and var2
+     LDAC var1 ; Load var1 into Accumulator
+     MOVAC     ; Move the contents of Accumulator to R
+     LDAC var2 ; Load the second variable into Accumulator
+     AND       ; AND Accumulator and R, move result into Accumulator
+     STAC band ; Store ACC to band address
+     LDAC band ; Load ACC from band address
+     OUT       ; Send ACC contents to output
+     CLAC      ; Clear ACC
+
+; OR var1 and var2
+     LDAC var1 ; Load var1 into Accumulator
+     MOVAC     ; Move the contents of Accumulator to R
+     LDAC var2 ; Load the second variable into Accumulator
+     OR        ; OR Accumulator and R, move result into Accumulator
+     STAC bor  ; Store ACC to bor address
+     LDAC bor  ; Load ACC from bor address
+     OUT       ; Send ACC contents to output
+     CLAC      ; Clear ACC
+
+; ASHR var2
+     LDAC var2 ; Load var2 into Accumulator
+     ASHR      ; Arithmetic shift right the ACC
+     STAC shft ; Store ACC to shr address
+     LDAC shft ; Load ACC from shr address
+     OUT       ; Send ACC contents to output
+     CLAC      ; Clear ACC
+
+; Increment var3
+     LDAC var3 ; Load var3 into Accumulator
+     INC       ; Increment ACC
+     STAC var3 ; Store ACC to var3 address
+     LDAC var3 ; Load ACC from var3 address
+     OUT       ; Send ACC contents to output
+     CLAC      ; Clear ACC
+
+; NOT var4
+     LDAC var4 ; Load var4 into Accumulator
+     MVAC      ; Move ACC to R
+     MOVR      ; Move R to ACC
+     NOT       ; NOT the ACC
+     STAC var4 ; Store ACC to var4 address
+     LDAC var4 ; Load ACC from var4 address
+     OUT       ; Send ACC contents to output
+     CLAC      ; Clear ACC
+     
+     HALT     ; Stop execution

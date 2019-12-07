@@ -1,0 +1,66 @@
+; Author: Michael McComas
+; Purpose: Product of 3 numbers
+  
+  JMP initialize
+  
+; Variables
+
+  var1: 2       ; Change var1
+  var2: 3       ; Change var2
+  var3: 2       ; Change var3
+  result: 0     ; Holds product of var1 and var2
+  result2: 0    ; Holds product of result and var3
+  counter: 0    ; Counter variable
+  constOne: 1   ; Constant one to decrement counter
+
+; Put value of var2 into varTemp
+  initialize:
+     LDAC var2        ; Load var2 into ACC        
+     STAC counter     ; Store value of var2 into counter
+     JMP loop1        ; Jump to loop1
+
+; Adding var1, var2 times
+  loop1:
+     JMPZ init2       ; Jump to init2 if Z == 1
+     LDAC var1	      ; Load var1 into ACC
+     MVAC	      ; Move ACC into R
+     LDAC result      ; Load result into ACC
+     ADD              ; Add values of result and var1 and store into ACC
+     STAC result      ; Store sum into result
+
+; Decrement the counter
+     LDAC constOne    ; Load 1 into ACC
+     MVAC             ; Move 1 into R
+     LDAC counter     ; Load counter into ACC
+     SUB              ; counter-1 and store into ACC
+     STAC counter     ; Store difference into counter
+     JMP loop1        ; Return to start of loop1
+
+  init2:
+     LDAC var3        ; Load var3 into ACC
+     STAC counter     ; Store value of var3 into counter
+     NOT              ; Not the ACC to reset Z to 0
+     JMP loop2        ; Jump to loop2
+
+; Adding result, result2 times
+  loop2:
+     JMPZ print       ; Jump to print if Z == 1
+     LDAC result      ; Load result into ACC
+     MVAC             ; Move value of result into R
+     LDAC result2     ; Load result2 into ACC
+     ADD              ; Add values of result and result2
+     STAC result2     ; Store sum into result2
+
+; Decrement the counter for this loop
+     LDAC constOne    
+     MVAC
+     LDAC counter
+     SUB
+     STAC counter
+     JMP loop2         
+
+  print:
+     LDAC result2    ; Load result2 into ACC
+     OUT             ; Output
+     CLAC            ; Clear the ACC
+     HALT            ; Stop execution
