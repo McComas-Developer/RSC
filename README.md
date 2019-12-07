@@ -23,4 +23,4 @@
 9) Select the saved text file with the bytecode and then tick the clock until its computation is complete.
 10) You've just ran your first program in this RSC! To run more operations, create assembly code to perform and then follow the byte code convertion instructions. Good Luck!
 
-*Note: Under under the simulate tab, select your ticking frequency as 32 Hertz and click "enable ticks." This will let the program do the clock ticking faster making it easier for you to know when its computation is completed.*
+*Note: Under the simulate tab, select your ticking frequency as 32 Hertz and click "enable ticks." This will let the program do the clock ticking faster making it easier for you to know when its computation has completed.*
