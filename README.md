@@ -10,13 +10,13 @@
 
 # How do I set it up?
 
-1) In order to open this file, you will need to download Logism.
-2) Once installed, download the zip file for this repository, and extract the files
+1) In order to open this file, you will need to download [Logism](https://sourceforge.net/projects/circuit/).
+2) Once installed, download the zip file for this repository, and extract the files.
    2a) The folder will contain the RSC, custom_reg, PLDs circuits as well as ram1, ram2 and ram3 text files
-3) Open Logism, click "File", and open the RSC file
+3) Open Logism, click "File", and open the RSC file.
    3a) If asked to select the "custom_reg" file upon opening the RSC file, select the "custom_reg" file you downloaded
 4) The text files you've extracted are assembly code that perform different functions.
-5) If you wish to load a text file into the RSC, you must download the RSC Emulator. 
+5) If you wish to load a text file into the RSC, you must download an RSC Emulator. 
 6) Once downloaded, paste the code from the file into the emulator and click "compile." Use CRT-A to select the outputted bytecode and CRT-C to copy it.
 7) Create a text file and copy "v2.0 raw" as the first line of the file, move to the next line, and paste the copied byte code, and save.
 8) Go to the RSC and click on the operation module and select "Load Image"
